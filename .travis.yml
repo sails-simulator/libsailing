@@ -1,0 +1,10 @@
+language: c
+compiler:
+    - clang
+    - gcc
+addons:
+  apt:
+    packages:
+    - cmocka
+
+script: make test
