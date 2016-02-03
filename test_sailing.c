@@ -12,6 +12,7 @@ static void null_test_success(void **state) {
 
 static void test_sailing_boat_init(void **state) {
   struct boat *boat = sailing_boat_init("Dewi");
+  assert_string_equal("Dewi", boat->name);
 }
 
 int main(void) {
