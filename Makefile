@@ -1,2 +1,3 @@
 test: test_sailing.c
-	gcc -o test_sailing test_sailing.c $(shell pkg-config --libs --cflags cmocka)
+	cc -o test_sailing test_sailing.c sailing.c $(shell pkg-config --libs --cflags cmocka)
+	./test_sailing
