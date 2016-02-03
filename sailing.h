@@ -5,4 +5,6 @@ struct boat {
     char *name;
 };
 
+struct boat *sailing_boat_init();
+
 #endif
