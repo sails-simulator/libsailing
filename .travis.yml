@@ -20,4 +20,9 @@ before_install:
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export PKG_CONFIG_PATH=/home/travis/lib/pkgconfig ; fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then export LD_LIBRARY_PATH=LD_LIBRARY_PATH:/home/travis/lib/; fi
 
-script: make test
+script:
+  - make test
+  - gcov sailing.c
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
