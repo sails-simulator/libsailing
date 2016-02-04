@@ -7,4 +7,6 @@ struct boat {
 
 struct boat *sailing_boat_init();
 
+void sailing_boat_free(struct boat *boat);
+
 #endif

@@ -9,3 +9,8 @@ struct boat *sailing_boat_init(const char *name) {
 
     return boat;
 }
+
+void sailing_boat_free(struct boat *boat) {
+    free(boat->name);
+    free(boat);
+}
