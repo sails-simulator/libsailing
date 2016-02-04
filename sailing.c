@@ -14,3 +14,7 @@ void sailing_boat_free(struct boat *boat) {
     free(boat->name);
     free(boat);
 }
+
+char *sailing_boat_get_name(struct boat *boat) {
+  return boat->name;
+}
