@@ -1,3 +1,3 @@
-test: test_sailing.c
-	cc -coverage -o test_sailing -Wall test_sailing.c sailing.c $(shell pkg-config --libs --cflags cmocka)
+test: testing/test_sailing.c
+	cc -coverage -o test_sailing -Wall testing/test_sailing.c sailing.c -I. $(shell pkg-config --libs --cflags cmocka)
 	./test_sailing
