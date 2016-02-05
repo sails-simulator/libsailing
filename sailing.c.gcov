@@ -1,0 +1,21 @@
+        -:    0:Source:sailing.c
+        -:    0:Graph:sailing.gcno
+        -:    0:Data:sailing.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include <stdlib.h>
+        -:    2:#include <string.h>
+        -:    3:
+        -:    4:#include "sailing.h"
+        -:    5:
+        2:    6:struct boat *sailing_boat_init(const char *name) {
+        2:    7:    struct boat *boat = calloc(1, sizeof(struct boat));
+        2:    8:    boat->name = strdup(name);
+        -:    9:
+        2:   10:    return boat;
+        -:   11:}
+        -:   12:
+        1:   13:void sailing_boat_free(struct boat *boat) {
+        1:   14:    free(boat->name);
+        1:   15:    free(boat);
+        1:   16:}
