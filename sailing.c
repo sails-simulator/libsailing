@@ -18,3 +18,7 @@ void sailing_boat_free(struct boat *boat) {
 char *sailing_boat_get_name(struct boat *boat) {
   return boat->name;
 }
+
+double sailing_boat_get_latitude(struct boat *boat) {
+    return boat->latitude;
+}
