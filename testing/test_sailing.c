@@ -43,6 +43,12 @@ static void test_sailing_boat_get_latitude(void **state) {
     sailing_boat_free(boat);
 }
 
+static void test_sailing_boat_get_longitude(void **state) {
+    struct boat *boat = sailing_boat_init("Dewi");
+    assert_true(abs(sailing_boat_get_longitude(boat)) < 0.001);
+    sailing_boat_free(boat);
+}
+
 int main(void) {
     const struct CMUnitTest tests[] = {
         cmocka_unit_test(null_test_success),
@@ -51,6 +57,7 @@ int main(void) {
         cmocka_unit_test(test_sailing_boat_free),
         cmocka_unit_test(test_sailing_boat_get_name),
         cmocka_unit_test(test_sailing_boat_get_latitude),
+        cmocka_unit_test(test_sailing_boat_get_longitude),
     };
     return cmocka_run_group_tests(tests, NULL, NULL);
 }
