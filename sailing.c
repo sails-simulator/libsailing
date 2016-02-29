@@ -6,6 +6,8 @@
 struct boat *sailing_boat_init(const char *name) {
     struct boat *boat = calloc(1, sizeof(struct boat));
     boat->name = strdup(name);
+    boat->longitude = 0;
+    boat->latitude = 0;
 
     return boat;
 }
