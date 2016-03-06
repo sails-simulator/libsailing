@@ -40,4 +40,6 @@ double sailing_boat_get_angle(Boat *boat);
 
 double sailing_boat_get_rudder_angle(Boat *boat);
 
+double sailing_boat_get_velocity(Boat *boat);
+
 #endif
