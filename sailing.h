@@ -34,4 +34,6 @@ double sailing_boat_get_latitude(Boat *boat);
 
 double sailing_boat_get_longitude(Boat *boat);
 
+double sailing_boat_get_sail_angle(Boat *boat);
+
 #endif

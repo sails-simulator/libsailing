@@ -48,3 +48,7 @@ double sailing_boat_get_latitude(Boat *boat) {
 double sailing_boat_get_longitude(Boat *boat) {
     return boat->y;
 }
+
+double sailing_boat_get_sail_angle(Boat *boat) {
+    return boat->sail_angle;
+}
