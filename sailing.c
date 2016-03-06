@@ -32,19 +32,19 @@ Boat *sailing_boat_init(const char *name) {
     return boat;
 }
 
-void sailing_boat_free(struct sailing_boat *boat) {
+void sailing_boat_free(Boat *boat) {
     free(boat->name);
     free(boat);
 }
 
-char *sailing_boat_get_name(struct sailing_boat *boat) {
+char *sailing_boat_get_name(Boat *boat) {
   return boat->name;
 }
 
-double sailing_boat_get_latitude(struct sailing_boat *boat) {
+double sailing_boat_get_latitude(Boat *boat) {
     return boat->x;
 }
 
-double sailing_boat_get_longitude(struct sailing_boat *boat) {
+double sailing_boat_get_longitude(Boat *boat) {
     return boat->y;
 }
