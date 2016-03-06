@@ -1,7 +1,8 @@
 #include <math.h>
 
-#include "boat.h"
+#include "sailing.h"
 #include "physics.h"
+#include "wind.h"
 
 static double sign_of(double a) {
     if (a <= 0) {
@@ -78,7 +79,7 @@ static double delta_velocity(const struct boat *boat, const struct wind *wind) {
             boat->tangential_friction * boat->v * boat->v) / boat->mass;
 }
 
-void sail_physics_update(struct boat *boat, const struct wind *wind, const double dt) {
+void sail_physics_update(Boat *boat, const struct wind *wind, const double dt) {
     if (sail_is_in_bounds(boat)) {
         boat->sheet_length = boat->sheet_length + dt * boat->sail_is_free;
     }
