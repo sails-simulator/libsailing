@@ -12,10 +12,10 @@ Wind* sail_wind_new() {
     return new_wind;
 }
 
-double sail_wind_get_speed(const Wind *wind) {
+double sailing_wind_get_speed(const Wind *wind) {
     return wind->speed;
 }
 
-double sail_wind_get_direction(const Wind *wind) {
+double sailing_wind_get_direction(const Wind *wind) {
     return wind->direction;
 }

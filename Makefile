@@ -1,3 +1,13 @@
-test: testing/test_sailing.c
-	cc -coverage -o test_sailing -Wall testing/test_sailing.c sailing.c -I. $(shell pkg-config --libs --cflags cmocka)
-	./test_sailing
+CC=gcc
+CFLAGS=-I. -std=gnu99 -Wall -lm
+DEPS = boat.h physics.h sailing.h wind.h
+OBJ = boat.o sailing.o wind.o physics.o testing/test_sailing.o
+
+%.o: %.c $(DEPS)
+	$(CC) -c -o $@ $< $(CFLAGS)
+
+test: $(OBJ)
+	$(CC) -coverage -o test_sailing $^ $(CFLAGS) $(shell pkg-config --libs --cflags cmocka)
+
+clean:
+	rm *.o

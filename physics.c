@@ -1,4 +1,5 @@
 #include <math.h>
+#include <stdbool.h>
 
 #include "physics.h"
 #include "boat.h"
@@ -12,24 +13,24 @@ static double sign_of(double a) {
     }
 }
 
-static double apparent_wind_x(const struct boat *boat, const struct wind *wind) {
-    return sail_wind_get_speed(wind) * cos(sail_wind_get_direction(wind) - boat->angle) - boat->v;
+static double apparent_wind_x(const Boat *boat, const struct wind *wind) {
+    return sailing_wind_get_speed(wind) * cos(sailing_wind_get_direction(wind) - boat->angle) - boat->v;
 }
 
-static double apparent_wind_y(const struct boat *boat, const struct wind *wind) {
-    return sail_wind_get_speed(wind) * sin(sail_wind_get_direction(wind) - boat->angle);
+static double apparent_wind_y(const Boat *boat, const struct wind *wind) {
+    return sailing_wind_get_speed(wind) * sin(sailing_wind_get_direction(wind) - boat->angle);
 }
 
-static double apparent_wind_direction(const struct boat *boat, const struct wind *wind) {
+static double apparent_wind_direction(const Boat *boat, const struct wind *wind) {
     return atan2(apparent_wind_y(boat, wind), apparent_wind_x(boat, wind));
 }
 
-static double apparent_wind_speed(const struct boat *boat, const struct wind *wind) {
+static double apparent_wind_speed(const Boat *boat, const struct wind *wind) {
     return sqrt(pow(apparent_wind_x(boat, wind), 2) + 
                 pow(apparent_wind_y(boat, wind), 2));
 }
 
-static boolean mainsheet_is_tight(const struct boat *boat, const struct wind *wind) {
+static bool mainsheet_is_tight(const Boat *boat, const struct wind *wind) {
     if (cos(apparent_wind_direction(boat, wind)) + cos(boat->sheet_length) < 0) {
         return true;
     } else {
@@ -37,45 +38,45 @@ static boolean mainsheet_is_tight(const struct boat *boat, const struct wind *wi
     }
 }
 
-static double force_on_rudder(const struct boat *boat, const struct wind *wind) {
-    return boat->rudder_lift * boat->v * sin(sail_boat_get_rudder_angle(boat));
+static double force_on_rudder(const Boat *boat, const struct wind *wind) {
+    return boat->rudder_lift * boat->v * sin(sailing_boat_get_rudder_angle(boat));
 }
 
-static double force_on_sail(const struct boat *boat, const struct wind *wind) {
+static double force_on_sail(const Boat *boat, const struct wind *wind) {
     return boat->sail_lift * apparent_wind_speed(boat, wind) * sin(boat->sail_angle - apparent_wind_direction(boat, wind));
 }
 
-static gboolean sail_is_in_bounds(const struct boat *boat) {
+static bool sail_is_in_bounds(const Boat *boat) {
     if (boat->sheet_length > -M_PI_2 && boat->sheet_length < M_PI_2) {
-        return TRUE;
+        return true;
     } else {
-        return FALSE;
+        return false;
     }
 }
 
-static double delta_x(const struct boat *boat, const struct wind *wind) {
-    return sail_boat_get_velocity(boat) * cos(sail_boat_get_angle(boat)) +
+static double delta_x(const Boat *boat, const struct wind *wind) {
+    return sailing_boat_get_velocity(boat) * cos(sailing_boat_get_angle(boat)) +
            boat->drift_coefficient *
-           sail_wind_get_speed(wind) *
-           cos(sail_wind_get_direction(wind));
+           sailing_wind_get_speed(wind) *
+           cos(sailing_wind_get_direction(wind));
 }
 
-static double delta_y(const struct boat *boat, const struct wind *wind) {
-    return sail_boat_get_velocity(boat) * sin(sail_boat_get_angle(boat)) +
+static double delta_y(const Boat *boat, const struct wind *wind) {
+    return sailing_boat_get_velocity(boat) * sin(sailing_boat_get_angle(boat)) +
            boat->drift_coefficient *
-           sail_wind_get_speed(wind) *
-           sin(sail_wind_get_direction(wind));
+           sailing_wind_get_speed(wind) *
+           sin(sailing_wind_get_direction(wind));
 }
 
-static double delta_rotational_velocity(const struct boat *boat, const struct wind *wind) {
+static double delta_rotational_velocity(const Boat *boat, const struct wind *wind) {
     return ((boat->sail_center_of_effort - boat->mast_distance * cos(boat->sail_angle)) * force_on_sail(boat, wind) -
-            boat->rudder_distance * cos(sail_boat_get_rudder_angle(boat)) * force_on_rudder(boat, wind) -
+            boat->rudder_distance * cos(sailing_boat_get_rudder_angle(boat)) * force_on_rudder(boat, wind) -
             boat->angular_friction * boat->rotational_velocity * boat->v) / boat->inertia;
 }
 
-static double delta_velocity(const struct boat *boat, const struct wind *wind) {
+static double delta_velocity(const Boat *boat, const struct wind *wind) {
     return (sin(boat->sail_angle) * force_on_sail(boat, wind) -
-            sin(sail_boat_get_rudder_angle(boat)) * force_on_rudder(boat, wind) -
+            sin(sailing_boat_get_rudder_angle(boat)) * force_on_rudder(boat, wind) -
             boat->tangential_friction * boat->v * boat->v) / boat->mass;
 }
 
