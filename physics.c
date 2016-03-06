@@ -1,7 +1,7 @@
 #include <math.h>
 
-#include "sailing.h"
 #include "physics.h"
+#include "boat.h"
 #include "wind.h"
 
 static double sign_of(double a) {

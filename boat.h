@@ -1,5 +1,5 @@
-#ifndef SAILING_H
-#define SAILING_H
+#ifndef SAILING_BOAT_H
+#define SAILING_BOAT_H
 
 typedef struct sailing_boat {
     char *name;
@@ -18,6 +18,7 @@ typedef struct sailing_boat {
 
     /* state variables */
     double v, rotational_velocity, ell;
+
     /* parameters */
     double drift_coefficient, mass, rudder_distance, mast_distance,
         rudder_lift, sail_lift, tangential_friction, angular_friction,

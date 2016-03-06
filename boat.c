@@ -2,7 +2,7 @@
 #include <string.h>
 #include <math.h>
 
-#include "sailing.h"
+#include "boat.h"
 #include "physics.h"
 
 Boat *sailing_boat_init(const char *name) {
