@@ -26,20 +26,20 @@ typedef struct sailing_boat {
 
 struct sailing_boat *sailing_boat_init();
 
-void sailing_boat_free(Boat *boat);
+void sailing_boat_free(const Boat *boat);
 
-char *sailing_boat_get_name(Boat *boat);
+char *sailing_boat_get_name(const Boat *boat);
 
-double sailing_boat_get_latitude(Boat *boat);
+double sailing_boat_get_latitude(const Boat *boat);
 
-double sailing_boat_get_longitude(Boat *boat);
+double sailing_boat_get_longitude(const Boat *boat);
 
-double sailing_boat_get_sail_angle(Boat *boat);
+double sailing_boat_get_sail_angle(const Boat *boat);
 
-double sailing_boat_get_angle(Boat *boat);
+double sailing_boat_get_angle(const Boat *boat);
 
-double sailing_boat_get_rudder_angle(Boat *boat);
+double sailing_boat_get_rudder_angle(const Boat *boat);
 
-double sailing_boat_get_velocity(Boat *boat);
+double sailing_boat_get_velocity(const Boat *boat);
 
 #endif
