@@ -38,4 +38,6 @@ double sailing_boat_get_sail_angle(Boat *boat);
 
 double sailing_boat_get_angle(Boat *boat);
 
+double sailing_boat_get_rudder_angle(Boat *boat);
+
 #endif
