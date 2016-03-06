@@ -32,7 +32,7 @@ Boat *sailing_boat_init(const char *name) {
     return boat;
 }
 
-void sailing_boat_free(const Boat *boat) {
+void sailing_boat_free(Boat *boat) {
     free(boat->name);
     free(boat);
 }
