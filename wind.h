@@ -5,7 +5,7 @@ typedef struct wind {
     double speed, direction;
 } Wind;
 
-Wind* sail_wind_new();
+Wind *sailing_wind_new();
 
 double sailing_wind_get_speed(const Wind *wind);
 double sailing_wind_get_direction(const Wind *wind);

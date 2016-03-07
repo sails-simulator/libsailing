@@ -1,5 +1,6 @@
 #include <math.h>
 #include <stdbool.h>
+#include <stdio.h>
 
 #include "physics.h"
 #include "boat.h"
@@ -80,7 +81,7 @@ static double delta_velocity(const Boat *boat, const struct wind *wind) {
             boat->tangential_friction * boat->v * boat->v) / boat->mass;
 }
 
-void sail_physics_update(Boat *boat, const struct wind *wind, const double dt) {
+void sailing_physics_update(Boat *boat, const struct wind *wind, const double dt) {
     if (sail_is_in_bounds(boat)) {
         boat->sheet_length = boat->sheet_length + dt * boat->sail_is_free;
     }

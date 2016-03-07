@@ -3,7 +3,7 @@
 
 #include "wind.h"
 
-Wind* sail_wind_new() {
+Wind *sailing_wind_new() {
     Wind *new_wind = calloc(1, sizeof(Wind));
 
     new_wind->speed = 4;
