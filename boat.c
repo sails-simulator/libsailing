@@ -39,15 +39,19 @@ void sailing_boat_free(Boat *boat) {
 }
 
 char *sailing_boat_get_name(const Boat *boat) {
-  return boat->name;
+    return boat->name;
 }
 
 double sailing_boat_get_latitude(const Boat *boat) {
-    return boat->x;
+    return boat->y;
+}
+
+void sailing_boat_set_latitude(Boat *boat, double latitude) {
+    boat->y = latitude;
 }
 
 double sailing_boat_get_longitude(const Boat *boat) {
-    return boat->y;
+    return boat->x;
 }
 
 double sailing_boat_get_sail_angle(const Boat *boat) {
