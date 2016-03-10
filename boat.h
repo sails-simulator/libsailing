@@ -37,6 +37,8 @@ void sailing_boat_set_latitude(Boat *boat, double latitude);
 
 double sailing_boat_get_longitude(const Boat *boat);
 
+void sailing_boat_set_longitude(Boat *boat, double longitude);
+
 double sailing_boat_get_sail_angle(const Boat *boat);
 
 double sailing_boat_get_angle(const Boat *boat);

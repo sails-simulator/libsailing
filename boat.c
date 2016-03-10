@@ -54,6 +54,10 @@ double sailing_boat_get_longitude(const Boat *boat) {
     return boat->x;
 }
 
+void sailing_boat_set_longitude(Boat *boat, double longitude) {
+    boat->x = longitude;
+}
+
 double sailing_boat_get_sail_angle(const Boat *boat) {
     return boat->sail_angle;
 }
