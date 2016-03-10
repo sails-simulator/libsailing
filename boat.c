@@ -62,6 +62,10 @@ double sailing_boat_get_sail_angle(const Boat *boat) {
     return boat->sail_angle;
 }
 
+void sailing_boat_set_sail_angle(Boat *boat, double sail_angle) {
+    boat->sail_angle = sail_angle;
+}
+
 double sailing_boat_get_angle(const Boat *boat) {
     return boat->angle;
 }

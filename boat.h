@@ -41,6 +41,8 @@ void sailing_boat_set_longitude(Boat *boat, double longitude);
 
 double sailing_boat_get_sail_angle(const Boat *boat);
 
+void sailing_boat_set_sail_angle(Boat *boat, double sail_angle);
+
 double sailing_boat_get_angle(const Boat *boat);
 
 double sailing_boat_get_rudder_angle(const Boat *boat);
