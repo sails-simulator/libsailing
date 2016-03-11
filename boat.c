@@ -74,6 +74,10 @@ double sailing_boat_get_rudder_angle(const Boat *boat) {
     return boat->rudder_angle;
 }
 
+void sailing_boat_set_rudder_angle(Boat *boat, double rudder_angle) {
+    boat->rudder_angle = rudder_angle;
+}
+
 double sailing_boat_get_velocity(const Boat *boat) {
     return boat->v;
 }
