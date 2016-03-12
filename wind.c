@@ -16,6 +16,14 @@ double sailing_wind_get_speed(const Wind *wind) {
     return wind->speed;
 }
 
+void sailing_wind_set_speed(Wind *wind, double speed) {
+    wind->speed = speed;
+}
+
 double sailing_wind_get_direction(const Wind *wind) {
     return wind->direction;
+}
+
+void sailing_wind_set_direction(Wind *wind, double direction) {
+    wind->direction = direction;
 }
