@@ -70,6 +70,10 @@ double sailing_boat_get_angle(const Boat *boat) {
     return boat->angle;
 }
 
+void sailing_boat_set_angle(Boat *boat, double angle) {
+    boat->angle = angle;
+}
+
 double sailing_boat_get_rudder_angle(const Boat *boat) {
     return boat->rudder_angle;
 }
