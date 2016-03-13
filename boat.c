@@ -13,11 +13,11 @@ Boat *sailing_boat_init(const char *name) {
     boat->y = 0;
     boat->angle = M_PI_4;
     boat->sail_angle = 0;
-    boat->rudder_angle = 0.2;
+    boat->rudder_angle = 0;
     boat->sail_is_free = 0;
 
     boat->v = 5;
-    boat->sheet_length = 0;
+    boat->sheet_length = 1;
     boat->rotational_velocity = 0.0;
     boat->inertia = 10000.0;
     boat->drift_coefficient = 0.05;
