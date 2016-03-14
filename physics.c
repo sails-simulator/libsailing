@@ -55,14 +55,14 @@ static bool sail_is_in_bounds(const Boat *boat) {
     }
 }
 
-static double delta_x(const Boat *boat, const struct wind *wind) {
+static double delta_y(const Boat *boat, const struct wind *wind) {
     return sailing_boat_get_velocity(boat) * cos(sailing_boat_get_angle(boat)) +
            boat->drift_coefficient *
            sailing_wind_get_speed(wind) *
            cos(sailing_wind_get_direction(wind));
 }
 
-static double delta_y(const Boat *boat, const struct wind *wind) {
+static double delta_x(const Boat *boat, const struct wind *wind) {
     return sailing_boat_get_velocity(boat) * sin(sailing_boat_get_angle(boat)) +
            boat->drift_coefficient *
            sailing_wind_get_speed(wind) *
