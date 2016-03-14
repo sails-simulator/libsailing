@@ -8,7 +8,12 @@
 Boat *sailing_boat_init(const char *name) {
     Boat *boat = calloc(1, sizeof(Boat));
     boat->name = strdup(name);
+    sailing_boat_reset(boat);
 
+    return boat;
+}
+
+void sailing_boat_reset(Boat *boat) {
     boat->x = 0;
     boat->y = 0;
     boat->angle = M_PI_4;
@@ -29,8 +34,6 @@ Boat *sailing_boat_init(const char *name) {
     boat->rudder_lift = 2000.0;
     boat->sail_center_of_effort = 1.0;
     boat->sail_lift = 1000.0;
-
-    return boat;
 }
 
 void sailing_boat_free(Boat *boat) {

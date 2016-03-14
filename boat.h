@@ -27,6 +27,8 @@ typedef struct sailing_boat {
 
 struct sailing_boat *sailing_boat_init();
 
+void sailing_boat_reset(Boat *boat);
+
 void sailing_boat_free(Boat *boat);
 
 char *sailing_boat_get_name(const Boat *boat);
