@@ -6,6 +6,8 @@
 #include "boat.h"
 #include "wind.h"
 
+#define R_EARTH 6378000
+
 static double sign_of(double a) {
     if (a <= 0) {
         return -1;
@@ -97,8 +99,8 @@ void sailing_physics_update(Boat *boat, const struct wind *wind, const double dt
         boat->sail_angle = sign_of(sin(-apparent_wind_direction(boat, wind)))*boat->sheet_length;
     }
 
-    boat->x += delta_x(boat, wind) * dt;
-    boat->y += delta_y(boat, wind) * dt;
+    boat->x += (delta_x(boat, wind) / R_EARTH) * (180 / M_PI) * dt;
+    boat->y += (delta_y(boat, wind) / R_EARTH) * ((180 / M_PI) / cos(boat->y * M_PI/180)) * dt;
 
     boat->rotational_velocity += delta_rotational_velocity(boat, wind) * dt;
     boat->v += delta_velocity(boat, wind) * dt;
