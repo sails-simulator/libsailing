@@ -55,4 +55,6 @@ void sailing_boat_set_rudder_angle(Boat *boat, double rudder_angle);
 
 double sailing_boat_get_velocity(const Boat *boat);
 
+void sailing_boat_set_sheet_length(Boat *boat, double sheet_length);
+
 #endif
