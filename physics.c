@@ -105,4 +105,12 @@ void sailing_physics_update(Boat *boat, const struct wind *wind, const double dt
     boat->rotational_velocity += delta_rotational_velocity(boat, wind) * dt;
     boat->v += delta_velocity(boat, wind) * dt;
     boat->angle += boat->rotational_velocity * dt;
+
+    //keep angle between 0 and 2*pi
+
+    if ( boat->angle < 0 ) {
+        boat->angle += M_PI * 2;
+    }
+
+    boat->angle = fmod(boat->angle,M_PI*2);
 }
