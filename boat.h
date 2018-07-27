@@ -57,4 +57,6 @@ double sailing_boat_get_velocity(const Boat *boat);
 
 void sailing_boat_set_sheet_length(Boat *boat, double sheet_length);
 
+double sailing_boat_get_sheet_length(const Boat *boat);
+
 #endif

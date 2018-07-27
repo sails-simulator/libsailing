@@ -27,11 +27,11 @@ void sailing_boat_reset(Boat *boat) {
     boat->inertia = 10000.0;
     boat->drift_coefficient = 0.05;
     boat->rudder_distance = 4.0;
-    boat->angular_friction = 6000;
+    boat->angular_friction = 8000;
     boat->mass = 300.0;
-    boat->tangential_friction = 0.2;
+    boat->tangential_friction = 0.1;
     boat->mast_distance = 1;
-    boat->rudder_lift = 2000.0;
+    boat->rudder_lift = 8000.0;
     boat->sail_center_of_effort = 1.0;
     boat->sail_lift = 1000.0;
 }
@@ -91,4 +91,8 @@ double sailing_boat_get_velocity(const Boat *boat) {
 
 void sailing_boat_set_sheet_length(Boat *boat, double sheet_length) {
     boat->sheet_length = sheet_length;
+}
+
+double sailing_boat_get_sheet_length(const Boat *boat) {
+    return boat->sheet_length;
 }
