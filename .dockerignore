@@ -1,0 +1,7 @@
+# Don't include any local build artifacts
+*.o
+
+# IDE's
+*.iml
+.idea
+.code
