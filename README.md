@@ -10,7 +10,7 @@ sailing boat.
 Developing
 ----------
 
-###NixOS
+### NixOS
 
 Open a shell with dependencies and utilities:
 
@@ -26,7 +26,7 @@ Docker
 ### Building
 
 ```
-docker build -t sail-simulator/libsailing .
+docker build -t quay.io/sails/libsailing .
 ```
 
 ### Using the Docker image
@@ -35,7 +35,7 @@ As this is a library, you should include this image as part of a multi-stage bui
 
 ```
 # Import the library
-FROM sails-simulator/libsailing:latest as lib
+FROM quay.io/sails/libsailing:master as lib
 
 # Now copy the pre-built libs into your container
 FROM alpine:latest
