@@ -10,3 +10,6 @@ make
 make install
 
 cd ../..
+
+export PKG_CONFIG_PATH=/home/travis/lib/pkgconfig
+export LD_LIBRARY_PATH=LD_LIBRARY_PATH:/home/travis/lib/
